@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>complexComponent</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		class DisplayCustomer extends React.Component{
+			render(){
+				return <div><h1>Customer Details:</h1> 
+					 <b>Name: {this.props.name}</b> <br/>
+					 <b>Email: {this.props.email}</b>
+					 <DisplayAddress address={this.props.address}/>
+					 </div>;
+			}
+		}
+
+		class DisplayAddress extends React.Component{
+			render(){
+				return <div>
+						<h1>Address:</h1>
+						<b>Street: {this.props.address.street}</b> <br/>
+						<b>City: {this.props.address.city}</b>
+					</div>
+			}
+		}
+
+		var address1 = {
+			street: "Red woods street",
+			city: "Hinterland"
+		};
+
+		var address2 = {
+			street: "Black wolf street",
+			city: "Southerland"
+		};
+
+		ReactDOM.render(<div>
+			<DisplayCustomer name="codeprep" email="hello@codepreplabs.com" address={address1}/> 
+			<DisplayCustomer name="foodprep" email="hello@foodpreplabs.com" address={address2}/> 
+			</div>, document.getElementById("root"));
+	</script>
+</body>
+
+</html>
