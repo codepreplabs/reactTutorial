@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table Component</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="root1">
+	</div>
+	<br/>
+
+	<script type="text/babel">
+
+	class Table1 extends React.Component {
+		render(){
+
+			var courses = [{name:"Java", age:20},{name:"Python", age:25}];
+			
+			return  <div>
+						<h1>{this.props.title}</h1>
+							<table>
+								<thead>
+									<tr>
+										<td>Name</td>
+										<td>Age</td>
+										<td>City</td>
+									</tr>
+								</thead>
+								<tbody>
+									{courses.map(course => 
+										<tr>
+											<td>{course.name}</td>
+											<td>{course.age}</td>
+										</tr>
+									)}
+								</tbody>
+							</table>
+					</div>
+		}
+	}
+		ReactDOM.render(<Table1 title="table of courses"/>,document.getElementById("root1"));
+	</script>
+	
+	
+</body>
+
+</html>
