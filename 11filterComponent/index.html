@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Row Creator Component</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+	<br/>
+
+	<script type="text/babel">
+
+	class RowCreator extends React.Component {
+
+		render(){
+
+			return <tr>
+					<td>{this.props.lang.name}</td>
+					<td>{this.props.lang.age}</td>
+				</tr>
+		}
+	}
+
+	var languages = [{name:"Java", age:20},{name:"Python", age:25}, {name:"Scala", age:10}, {name:"Pearl", age:35}];
+
+	class Table extends React.Component {
+
+		constructor(props){
+			super(props);
+			this.state={langs:languages,
+						langsClone:languages}
+		}
+
+		searchHandler(event){
+
+			var query = event.target.value;
+			var results = [];
+
+			for(var language of this.state.langs){
+				if(language.name.toLowerCase().indexOf(query.toLowerCase()) >= 0){
+					results.push(language);
+				}
+			}
+			this.setState({langsClone:results});
+		}
+
+		render(){
+			
+			return  <div>
+						<h1>{this.props.title}</h1>
+						<br/>
+						<input type="text" placeholder="search by name or city" onChange={this.searchHandler.bind(this)}/>
+							<table>
+								<thead>
+									<tr>
+										<td>Name</td>
+										<td>Age</td>
+										<td>City</td>
+									</tr>
+								</thead>
+								<tbody>
+									{this.state.langsClone.map(lang => 
+										<RowCreator lang={lang} />
+									)}
+								</tbody>
+							</table>
+					</div>
+		}
+	}
+		ReactDOM.render(<Table title="table of languages"/>,document.getElementById("root"));
+	</script>
+	
+	
+</body>
+
+</html>
