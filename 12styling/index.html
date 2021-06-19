@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Component</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	
+	<style>
+		.text{
+			background-color: yellow;
+			color: red;
+			font-size: 30px;
+			text-align: center;
+			padding: 10px;
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root">
+	</div>
+
+	<script type="text/babel">
+
+	class Text extends React.Component {
+		render(){
+
+			var textStyle = {
+				backgroundColor: this.props.bgcolor,
+				color: "White",
+				fontSize: 30,
+				textAlign: "center",
+				padding: 10,
+				margin: 10
+			}
+			{/*Inline styles are not supported*/}
+			return  <div style={textStyle}>
+						{this.props.children}
+					</div>
+		}
+	}
+		ReactDOM.render(<div>
+							{/*This is a comment in JSX. Single line comments are not supported*/}
+							<Text bgcolor="Green">Brazil</Text>
+							<Text bgcolor="Blue">Russia</Text>
+							<Text bgcolor="Orange">India</Text>
+							<Text bgcolor="Red">China</Text>
+							<Text bgcolor="Black">South Africa</Text>
+		</div>,document.getElementById("root"));
+	</script>
+	
+	
+</body>
+
+</html>
