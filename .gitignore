@@ -1,2 +1,7 @@
 16project/peopleAPI/node_modules/
 16project/peopleAPI/yarn.lock
+17flightproject/flightservices/.idea/
+17flightproject/flightservices/target/
+17flightproject/node_modules/
+*.iml
+17flightproject/yarn.lock
