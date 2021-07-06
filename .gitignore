@@ -5,3 +5,5 @@
 17flightproject/node_modules/
 *.iml
 17flightproject/yarn.lock
+18clinicproject/ClinicalDataReportingProjects/clinicalsapi/.idea/
+18clinicproject/ClinicalDataReportingProjects/clinicalsapi/target/
